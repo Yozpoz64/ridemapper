@@ -14,6 +14,7 @@ import folium.plugins
 import gpxpy
 import glob
 import os
+import random
 
 # constants
 TITLE = 'My Cycling Map'
@@ -121,8 +122,15 @@ class mapper():
             'speed': speed}
         
         return track_data
+    
+    
+    # gets random colours for plotting
+    def get_random_colours(self, num_colours):
+        return ["#"+''.join([random.choice('0123456789ABCDEF') for j in range(6)])
+             for i in range(num_colours)]
+    
 
-
+    # iterates through gpx files, calling mapping functions
     def map_gpxs(self, map_object, folder, line_type='antpath', line_weight=5, 
                  line_opacity=0.5):
         self.distance = -1
@@ -130,13 +138,15 @@ class mapper():
         '''
         NEED TO ADD COLOUR CHANGING SUPPORT
         '''
-        colour = 'blue'
         
         try:
             self.data = self.get_files(folder)
             
+            self.colours = self.get_random_colours(len(self.data))
+            
             # for every gpx file in the given folder
             for gpx_file in self.data:
+      
                 # get coords and metadata
                 track_data = self.get_gpxdata(gpx_file)
                 
@@ -161,7 +171,8 @@ class mapper():
                     
                     # add antpath to map
                     path = folium.plugins.AntPath(points, delay=antpath_speed, 
-                        weight=line_weight, dashArray=(10, 200), colour='blue', 
+                        weight=line_weight, dashArray=(10, 200), 
+                        color=self.colours[self.data.index(gpx_file)], 
                         opacity=line_opacity,
                         tooltip=folium.Html(popup_string, script=True).render()
                         ).add_to(map_object)
@@ -172,7 +183,8 @@ class mapper():
                          
                 elif line_type.lower() == 'polyline':
                     # add polyline to map
-                    folium.PolyLine(points, color=colour, weight=line_weight,
+                    folium.PolyLine(points, color=self.colours[self.data.index(gpx_file)], 
+                                    weight=line_weight,
                                     opacity=line_opacity, 
                                     popup=folium.Html(popup_string, script=True)
                                     .render()).add_to(map_object)
