@@ -14,4 +14,4 @@ You can access most of the folium/leaflet arguments through the class, have a lo
 The example file can be viewed on the GitHub pages for this repository: https://yozpoz64.github.io/ridemapper/map.html
 
 Here is a screenshot of that site taken in version 1:
-[image.png](image.png)
+![https://github.com/Yozpoz64/ridemapper/blob/83e760a126e552b27f54ced199676ad2b89b62b3/example_ss.png](Example)
