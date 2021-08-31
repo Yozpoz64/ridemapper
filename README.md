@@ -1,7 +1,7 @@
 # RideMapper
 
 ### Description
-A Python module that maps your .gpx files in a painless, user-friendly way
+A Python module that maps your .gpx files in a painless, user-friendly way. Loads any folder of .gpx files, parses and converts the files into readable coordinates, then maps the coordinates with summary statistics as tooltips.
 
 Created by Sophie Kolston
 
@@ -37,3 +37,11 @@ The example file can be viewed on the GitHub pages for this repository: https://
 
 Here is a screenshot of that site taken in version 1:
 ![Example output](https://github.com/Yozpoz64/ridemapper/blob/182636dda99df708e21466ff8e970f1d6b628fdc/example_ss.png)
+
+
+### Dependencies
+These modules are required to run ridemapper. They can be installed with pip.
+* Folium (and plugins) - Builds Leaflet HTML maps ([Project](https://github.com/python-visualization/folium), [PyPi](https://pypi.org/project/folium/))
+* GpxPy - Parses and manipulates .gpx files ([Project](https://github.com/tkrajina/gpxpy), [PyPi](https://pypi.org/project/gpxpy/)
+
+
