@@ -42,6 +42,6 @@ Here is a screenshot of that site taken in version 1:
 ### Dependencies
 These modules are required to run ridemapper. They can be installed with pip.
 * Folium (and plugins) - Builds Leaflet HTML maps ([Project](https://github.com/python-visualization/folium), [PyPi](https://pypi.org/project/folium/))
-* GpxPy - Parses and manipulates .gpx files ([Project](https://github.com/tkrajina/gpxpy), [PyPi](https://pypi.org/project/gpxpy/)
+* GpxPy - Parses and manipulates .gpx files ([Project](https://github.com/tkrajina/gpxpy), [PyPi](https://pypi.org/project/gpxpy/))
 
 
